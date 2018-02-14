@@ -22,6 +22,9 @@ export function getUpdateJson (noCache) {
       tmpUpdateJson = json
       return tmpUpdateJson
     })
+    .catch(err => {
+      console.log(err)
+    })
 }
 
 export function parseName (json) {
