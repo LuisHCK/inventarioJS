@@ -2,7 +2,12 @@
   <el-container id="app">
     <sidebar v-if="logged()"></sidebar>
     <el-container>
-      <el-header v-if="logged()">Header</el-header>
+      <el-header class="app-header" v-if="logged()">
+        <div class="profile">
+          <img src="static/logo.png" class="circle">
+          <span><b>Usuario</b></span>
+        </div>
+      </el-header>
       <el-main>
         <router-view></router-view>
       </el-main>
@@ -30,7 +35,12 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0px !important;
+}
 .center-text {
   text-align: center;
 }
@@ -42,8 +52,25 @@ export default {
   height: auto;
 }
 .el-main {
-  background-color: #e9eef3;
-  padding: 5px;
-  height: 100%;
+  background-color: #f7f7f7;
+  height: 78vh;
+}
+.float-right {
+  position: absolute;
+  right: 0;
+}
+.app-header {
+  text-align: right;
+  background-color: #465e6d;
+  .profile {
+    img {
+      margin: 10px;
+      height: 40px;
+      width: auto;
+    }
+    b {
+      color: #a8a8a8;
+    }
+  }
 }
 </style>

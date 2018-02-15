@@ -11,14 +11,14 @@ const db = new PouchDB('inventariojs')
 db.setSchema([
   {
     singular: 'product',
-    plural: 'products',
-    relations: {
-      stock: { belongsTo: 'stock' }
-    }
+    plural: 'products'
   },
   {
     singular: 'stock',
-    plural: 'stocks'
+    plural: 'stocks',
+    relations: {
+      productId: {belongsTo: 'product'}
+    }
   },
   {
     singular: 'sale',
