@@ -2,12 +2,7 @@
   <el-container id="app">
     <sidebar v-if="logged()"></sidebar>
     <el-container>
-      <el-header class="app-header" v-if="logged()">
-        <div class="profile">
-          <img src="static/logo.png" class="circle">
-          <span><b>Usuario</b></span>
-        </div>
-      </el-header>
+      <app-header :value="$route.name"></app-header>
       <el-main>
         <router-view></router-view>
       </el-main>
@@ -18,9 +13,10 @@
 
 <script>
 import Sidebar from './components/layout/Sidebar.vue'
+import Header from './components/layout/Header.vue'
 export default {
   name: 'app',
-  components: { 'sidebar': Sidebar },
+  components: { sidebar: Sidebar, 'app-header': Header },
   methods: {
     logged() {
       let logged = false
@@ -31,6 +27,8 @@ export default {
       }
       return logged
     }
+  },
+  created() {
   }
 }
 </script>
@@ -59,18 +57,5 @@ body {
   position: absolute;
   right: 0;
 }
-.app-header {
-  text-align: right;
-  background-color: #465e6d;
-  .profile {
-    img {
-      margin: 10px;
-      height: 40px;
-      width: auto;
-    }
-    b {
-      color: #a8a8a8;
-    }
-  }
-}
+
 </style>

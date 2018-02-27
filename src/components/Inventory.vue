@@ -32,6 +32,7 @@
 
       <el-table-column
         prop="quantity"
+        width="110"
         label="Existencias">
       </el-table-column>
 

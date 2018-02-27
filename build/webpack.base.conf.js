@@ -83,6 +83,10 @@ module.exports = {
             loader: "sass-loader" // compiles Sass to CSS
         }]
       },
+      {
+        test: /\.csv$/,
+        use: 'raw-loader'
+      }
     ],
   },
   target: 'node-webkit'

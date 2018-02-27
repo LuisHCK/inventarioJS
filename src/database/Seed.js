@@ -1,37 +1,7 @@
 import db from '../db'
+import Papa form 'papaparse'
 
-const products = [
-  {
-    name: 'Galleta Chocolate',
-    code: '3912301823098',
-    description: 'Galleta sabor a vainilla',
-    brand: 'Oreo',
-    categories: 'Dulces,Alimentos',
-    tags: 'Test, Seed, Pruebas',
-    content: 10,
-    unity: 'unidad'
-  },
-  {
-    name: 'Chocolate en barra',
-    code: '123123543655647',
-    description: 'Choclate en barra',
-    brand: 'Snickers',
-    categories: 'Dulces,Alimentos',
-    tags: 'Test, Seed, Pruebas',
-    content: 10,
-    unity: 'unidad'
-  },
-  {
-    name: 'Doritos Barbacoa',
-    code: '476878987967856',
-    description: 'Snacks sabor a barbacoa picante',
-    brand: 'Doritos',
-    categories: 'Snacks,Alimentos',
-    tags: 'Test, Seed, Pruebas',
-    content: 10,
-    unity: 'unidad'
-  }
-]
+const products = Papa.parse(require('../assets/Grocery_UPC_Database.csv'))
 
 export function SeedProducts() {
   products.forEach(product => {
